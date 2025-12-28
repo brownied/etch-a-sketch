@@ -1,5 +1,5 @@
 let sideLength = 25;
-let pixelLength = 1;
+let pixelLength = 0;
 let numBoxes = 16;
 const width = 400;
 
@@ -11,6 +11,7 @@ function makeBox(newWidth){
     div.style.width = newWidth + "px";
     div.style.height = newWidth + "px";
     div.style.border = pixelLength + "px solid black"
+    div.style.backgroundColor = "white";
     return div;
 }
 
@@ -30,16 +31,27 @@ let mouseDown = false;
 container.addEventListener('mousedown', (e) => {
     mouseDown = true
     let targetDiv = e.target;
-    targetDiv.style.backgroundColor = "red";
+    rand1 = Math.floor(Math.random() * 256);
+    rand2 = Math.floor(Math.random() * 256); 
+    rand3 = Math.floor(Math.random() * 256);
+    if (targetDiv.style.backgroundColor == 'white'){  
+    targetDiv.style.backgroundColor = "rgb(" + rand1 + ", " + rand2 + ", " + rand3 + ")";
+    }
 });
 container.addEventListener('mouseup', () => mouseDown = false);
 
 container.addEventListener('mouseover', e => {
     if (mouseDown){
     let targetDiv = e.target;
-    targetDiv.style.backgroundColor = "red";
+    rand1 = Math.floor(Math.random() * 256);
+    rand2 = Math.floor(Math.random() * 256); 
+    rand3 = Math.floor(Math.random() * 256);  
+
+    
+   if (targetDiv.style.backgroundColor == 'white'){  
+    targetDiv.style.backgroundColor = "rgb(" + rand1 + ", " + rand2 + ", " + rand3 + ")";
     }
-});
+}});
 
 
 button.addEventListener('click', () => {
